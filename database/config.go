@@ -10,7 +10,7 @@ import (
 )
 
 func DBInstance() *mongo.Client {
-	MongoDB := "mongodb+srv://physicist1:<physicist1>@cluster0.uvzxt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+	MongoDB := "MONGODB_URI"
 	fmt.Print(MongoDB)
 
 	client, err := mongo.NewClient(options.Client().ApplyURI(MongoDB))
