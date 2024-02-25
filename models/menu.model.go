@@ -1,0 +1,17 @@
+package models
+
+import (
+	"time"
+	"go.mongodb.org/mongo-driver/bson/primitive"
+)
+
+type Menu struct {
+	ID             primitive.ObjectID        `bson:'_id'`
+	Name           string                    `json:"name"`
+	Category       string                    `json:"category"`
+	Start_Date     string                    `json:"start_date"`
+	End_Date       string                    `json:"end_date"`
+	Created_at     *time.Time                `json:"created_at"`
+	Update_at      *time.Time                `json:"created_at"`
+	Menu_id        string                    `json:"menu_id" validate:"required"`
+}
