@@ -4,30 +4,32 @@ import (
 	"context"
 	"fmt"
 	"log"
+	"os"
 	"time"
+
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
 func DBInstance() *mongo.Client {
-	MongoDB := "MONGODB_URI"
+	MongoDB := os.Getenv("MONGODB_URI")
 	fmt.Print(MongoDB)
 
-	client, err := mongo.NewClient(options.Client().ApplyURI(MongoDB))
-
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	ctx, cancel := context.WithTimeout(context.BackGround(), 10*time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 
 	defer cancel()
 
-	err = client.Connect(ctx)
+	client, err := mongo.Connect(ctx, options.Client().ApplyURI(MongoDB))
+
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.PrintLln("Connected to mongodb")
+
+	// err = client.Connect(ctx)
+	// if err != nil {
+	// 	log.Fatal(err)
+	// }
+	fmt.Println("connection to database is successful")
 
 	return client
 }
@@ -35,7 +37,8 @@ func DBInstance() *mongo.Client {
 var Client *mongo.Client = DBInstance()
 
 func OpenCollection(client *mongo.Client, collectionName string) {
-	var collection *mongo.Client = client.Database("restaurant").Collection(collectionName)
+	// var collection = 
+	client.Database("restaurant").Collection(collectionName)
 
-	return collection
+	// return collection
 }
