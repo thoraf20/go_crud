@@ -25,20 +25,15 @@ func DBInstance() *mongo.Client {
 		log.Fatal(err)
 	}
 
-	// err = client.Connect(ctx)
-	// if err != nil {
-	// 	log.Fatal(err)
-	// }
-	fmt.Println("connection to database is successful")
+	fmt.Println("connection to database established")
 
 	return client
 }
 
 var Client *mongo.Client = DBInstance()
 
-func OpenCollection(client *mongo.Client, collectionName string) {
-	// var collection = 
-	client.Database("restaurant").Collection(collectionName)
+// func OpenCollection(client *mongo.Client, collectionName string) {
+// 	var collection = client.Database("restaurant").Collection(collectionName)
 
-	// return collection
-}
+// 	return collection
+// }

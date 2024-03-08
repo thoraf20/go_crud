@@ -4,25 +4,25 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func GetTables() gin.HandleFunc() {
+func GetTables() gin.HandlerFunc {
 	return func(c *gin.Context) {
 
 	}
 }
 
-func GetTable() gin.HandleFunc() {
-	return func(c *gin.Context) {
-		
-	}
-}
-
-func CreateTable() gin.HandleFunc() {
+func GetTable() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		
 	}
 }
 
-func UpdateTable() gin.HandleFunc() {
+func CreateTable() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		
+	}
+}
+
+func UpdateTable() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		
 	}
