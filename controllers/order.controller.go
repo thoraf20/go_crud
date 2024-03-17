@@ -17,8 +17,6 @@ import (
 )
 
 var orderCollection *mongo.Collection = database.Client.Database("restaurant").Collection("food")
-var tableCollection *mongo.Collection = database.Client.Database("restaurant").Collection("table")
-
 
 func GetOrders() gin.HandlerFunc {
 	return func(c *gin.Context) {
